@@ -49,7 +49,6 @@
   .left {
     justify-content: flex-start;
     font-weight: bold;
-    color: #003366;
   }
 
   .center {
@@ -60,7 +59,6 @@
   .right {
     justify-content: flex-end;
     font-weight: bold;
-    color: #003366;
   }
 
   button {
@@ -69,7 +67,6 @@
     cursor: pointer;
   }
 
-  /* IFRAME */
   iframe {
     width: 98%;
     height: 80vh;
@@ -90,7 +87,7 @@
 <div id="nav">
 
   <div class="left">
-    <div id="battery">🔋 --%</div>
+    <div id="battery">Batterie 🔋 : --%</div>
   </div>
 
   <div class="center">
@@ -107,6 +104,7 @@
 <iframe id="examFrame" src="https://testcfpml.cssdn.gouv.qc.ca"></iframe>
 
 <script>
+// Navigation entre sites
 function showSite(url) {
   document.getElementById('examFrame').src = url;
 }
@@ -119,14 +117,30 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Batterie
+// Batterie avec couleur dynamique
 if (navigator.getBattery) {
   navigator.getBattery().then(battery => {
+
     function updateBattery() {
-      document.getElementById('battery').innerText = "🔋 " + Math.round(battery.level * 100) + "%";
+      let level = Math.round(battery.level * 100);
+      let batteryText = document.getElementById('battery');
+
+      // Texte
+      batteryText.innerText = "Batterie 🔋 : " + level + "%";
+
+      // Couleur
+      if (level >= 50) {
+        batteryText.style.color = "green";
+      } else if (level >= 20) {
+        batteryText.style.color = "orange";
+      } else {
+        batteryText.style.color = "red";
+      }
     }
+
     battery.addEventListener('levelchange', updateBattery);
     updateBattery();
+
   });
 }
 </script>
