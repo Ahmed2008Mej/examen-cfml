@@ -11,7 +11,6 @@
     background: #f5f5f5;
   }
 
-  /* HEADER */
   header {
     display: flex;
     align-items: center;
@@ -31,7 +30,6 @@
     margin: 0;
   }
 
-  /* NAV */
   #nav {
     width: 95%;
     margin: 15px auto;
@@ -92,7 +90,7 @@
 
   <div class="center">
     <button onclick="showSite('https://testcfpml.cssdn.gouv.qc.ca')">Évaluation CFML</button>
-    <button onclick="showSite('https://docs.google.com/forms/d/e/1FAIpQLSclc-sc048ybbydeNsw5UspU0ReQAhkTeaQ2lEWF4PiUWhsPQ/viewform?embedded=true')">Formulaire Google</button>
+    <button onclick="showSite('https://docs.google.com/forms/d/e/1FAIpQLSf2yFznBDSG751_oohrLzW-Yvze3A8W_um0z74SKvP3PmKtrA/viewform?embedded=true')">Formulaire Google</button>
   </div>
 
   <div class="right">
@@ -101,10 +99,10 @@
 
 </div>
 
-<iframe id="examFrame" src="https://testcfpml.cssdn.gouv.qc.ca"></iframe>
+<!-- ✅ GOOGLE FORM PAR DÉFAUT -->
+<iframe id="examFrame" src="https://docs.google.com/forms/d/e/1FAIpQLSf2yFznBDSG751_oohrLzW-Yvze3A8W_um0z74SKvP3PmKtrA/viewform?embedded=true"></iframe>
 
 <script>
-// Navigation entre sites
 function showSite(url) {
   document.getElementById('examFrame').src = url;
 }
@@ -117,7 +115,7 @@ function updateClock() {
 setInterval(updateClock, 1000);
 updateClock();
 
-// Batterie avec couleur dynamique
+// Batterie
 if (navigator.getBattery) {
   navigator.getBattery().then(battery => {
 
@@ -125,10 +123,8 @@ if (navigator.getBattery) {
       let level = Math.round(battery.level * 100);
       let batteryText = document.getElementById('battery');
 
-      // Texte
       batteryText.innerText = "Batterie 🔋 : " + level + "%";
 
-      // Couleur
       if (level >= 50) {
         batteryText.style.color = "green";
       } else if (level >= 20) {
