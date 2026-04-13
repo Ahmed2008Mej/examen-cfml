@@ -89,7 +89,7 @@
   </div>
 
   <div class="center">
-    <button onclick="showSite('https://testcfpml.cssdn.gouv.qc.ca')">Évaluation CFML</button>
+    <button onclick="showSite('https://evaluation.e-potentiel.com/demo/pro/fr')">Évaluation CFML</button>
     <button onclick="showSite('https://docs.google.com/forms/d/e/1FAIpQLSf2yFznBDSG751_oohrLzW-Yvze3A8W_um0z74SKvP3PmKtrA/viewform?embedded=true')">Formulaire Google</button>
   </div>
 
@@ -99,10 +99,11 @@
 
 </div>
 
-<!-- ✅ GOOGLE FORM PAR DÉFAUT -->
+<!-- Google Form par défaut -->
 <iframe id="examFrame" src="https://docs.google.com/forms/d/e/1FAIpQLSf2yFznBDSG751_oohrLzW-Yvze3A8W_um0z74SKvP3PmKtrA/viewform?embedded=true"></iframe>
 
 <script>
+// Navigation
 function showSite(url) {
   document.getElementById('examFrame').src = url;
 }
